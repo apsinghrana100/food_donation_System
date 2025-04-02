@@ -1,0 +1,24 @@
+# Ignore node_modules in both Frontend and Backend
+Frontend/node_modules/
+Backend/node_modules/
+
+# Ignore environment variables
+Frontend/.env
+Backend/.env
+
+# Ignore build/dist files (for Frontend frameworks)
+Frontend/build/
+Frontend/dist/
+
+# Ignore logs
+Backend/logs/
+Frontend/logs/
+
+# Ignore dependency lock files (optional)
+Frontend/package-lock.json
+Backend/package-lock.json
+
+# Ignore system files
+.DS_Store
+.vscode/
+.idea/
