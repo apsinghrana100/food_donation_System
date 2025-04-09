@@ -1,21 +1,21 @@
 # Ignore node_modules in both Frontend and Backend
-Frontend/donation/node_modules/
+Frontend/node_modules/
 Backend/node_modules/
 
 # Ignore environment variables
-Frontend/donation/.env
+Frontend/.env
 Backend/.env
 
 # Ignore build/dist files (for Frontend frameworks)
-Frontend/donation/build/
-Frontend/donation/dist/
+Frontend/build/
+Frontend/dist/
 
 # Ignore logs
 Backend/logs/
-Frontend/donation/logs/
+Frontend/logs/
 
 # Ignore dependency lock files (optional)
-Frontend/donation/package-lock.json
+Frontend/package-lock.json
 Backend/package-lock.json
 
 # Ignore system files
