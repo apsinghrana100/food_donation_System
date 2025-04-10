@@ -35,7 +35,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Serve static files from React build
-app.use(express.static(path.join(__dirname, "../Frontend/donation/build")));
+// app.use(express.static(path.join(__dirname, "../Frontend/donation/build")));
 
 // Routes
 app.use('/api', authRoutes);
@@ -47,9 +47,9 @@ app.use('/api', userRouter);
 swaggerDocs(app, PORT);
 
 // Catch-All Handler for React App
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "../Frontend/donation/build/index.html"));
-});
+// app.use((req, res) => {
+//   res.sendFile(path.join(__dirname, "../Frontend/donation/build/index.html"));
+// });
 
 // Initialize Associations
 initializeAssociations();
