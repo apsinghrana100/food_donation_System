@@ -1,0 +1,43 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'backend/**'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'backend/**'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: docker login
+      uses: docker@login-action@v3
+      with:
+        username: ${{secrets.D}}
+        password: ${{secrets.p}}
+        
+    - name: Build the Docker image
+      run: docker build -t ${{ secrets.d }}/food_donation_system:latest ./backend
+
+    - name: Tag with commit SHA
+      run: |
+       docker tag ${{ secrets.d }}/food_donation_system:latest ${{ secrets. }}/food_donation_system:${{ github.sha }}
+
+    - name: Push both tags
+      run: |
+       docker push ${{ secrets.d }}/food_donation_system:latest
+       docker push ${{ secrets.d }}/food_donation_system:${{ github.sha }}
+
+    
+      
+
+    
