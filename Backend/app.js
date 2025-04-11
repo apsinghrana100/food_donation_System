@@ -60,7 +60,7 @@ const main = async () => {
     await ConnectionSequelize.sync({ alter: true });
     app.listen(PORT, () => console.log(`✅ Server is running on http://localhost:${PORT}`));
   } catch (error) {
-    console.error(`❌ Error starting serverS: ${error}`);
+    console.error(`❌ Error starting server: ${error}`);
   }
 };
 
