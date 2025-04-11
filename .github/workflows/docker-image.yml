@@ -11,33 +11,26 @@ on:
       - 'Backend/**'
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: docker login
-      uses: docker@login-action@v3
-      with:
-        username: ${{secrets.DOCKER_USER_NAME}}
-        password: ${{secrets.DOCKER_SECRETS_TOKEN}}
-        
-    - name: Build the Docker image
-      run: docker build -t ${{ secrets.d }}/food_donation_system:latest ./Backend
+      - name: Docker Login
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USER_NAME }}
+          password: ${{ secrets.DOCKER_SECRETS_TOKEN }}
 
-    - name: Tag with commit SHA
-      run: |
-       docker tag ${{ secrets.d }}/food_donation_system:latest ${{ secrets. }}/food_donation_system:${{ github.sha }}
+      - name: Build the Docker image
+        run: docker build -t ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:latest ./Backend
 
-    - name: Push both tags
-      run: |
-       docker push ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:latest
-       docker push ${{ secrets.DOCKER_USER_NAME}}/food_donation_system:${{ github.sha }}
+      - name: Tag with commit SHA
+        run: |
+          docker tag ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:latest ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:${{ github.sha }}
 
-    
-      
-
-    
+      - name: Push both tags
+        run: |
+          docker push ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:latest
+          docker push ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:${{ github.sha }}
