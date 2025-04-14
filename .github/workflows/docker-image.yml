@@ -32,5 +32,5 @@ jobs:
 
       - name: Push both tags
         run: |
-          docker push ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:latest
+          docker push ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:backend
           docker push ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:${{ github.sha }}
