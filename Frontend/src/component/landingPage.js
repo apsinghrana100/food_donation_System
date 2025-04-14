@@ -41,7 +41,7 @@ const LandingPage = () => {
         logout();
       }
     } catch (error) {
-      console.error("Logout failed check:", error);
+      console.error("Logout failed:", error);
     }
   };
 

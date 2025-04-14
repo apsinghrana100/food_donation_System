@@ -24,13 +24,13 @@ jobs:
           password: ${{ secrets.DOCKER_SECRETS_TOKEN }}
 
       - name: Build the Docker image
-        run: docker build -t ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:fronted ./Frontend
+        run: docker build -t ${{ secrets.DOCKER_USER_NAME }}/food_donation_system_frontend:latest ./Frontend
 
       - name: Tag with commit SHA
         run: |
-          docker tag ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:frontend ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:${{ github.sha }}
+          docker tag ${{ secrets.DOCKER_USER_NAME }}/food_donation_system_frontend:latest ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:${{ github.sha }}
 
       - name: Push both tags
         run: |
-          docker push ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:frontend
-          docker push ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:${{ github.sha }}
+          docker push ${{ secrets.DOCKER_USER_NAME }}/food_donation_system_frontend:latest
+          docker push ${{ secrets.DOCKER_USER_NAME }}/food_donation_system_frontend:${{ github.sha }}
