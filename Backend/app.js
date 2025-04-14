@@ -26,7 +26,7 @@ const __dirname = path.dirname(__filename);
 
 // Middleware
 app.use(cors({
-  origin: ["http://localhost:3000", "http://localhost:5000",process.env.PORT.BACKEND_URL,process.env.PORT.FRONTED_URL],
+  origin: ["http://localhost:3000", "http://localhost:5000",process.env.BACKEND_URL,process.env.FRONTED_URL],
   credentials: true,
 }));
 app.use(express.json());
