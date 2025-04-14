@@ -28,7 +28,7 @@ jobs:
 
       - name: Tag with commit SHA
         run: |
-          docker tag ${{ secrets.DOCKER_USER_NAME }}/food_donation_system_frontend:latest ${{ secrets.DOCKER_USER_NAME }}/food_donation_system:${{ github.sha }}
+          docker tag ${{ secrets.DOCKER_USER_NAME }}/food_donation_system_frontend:latest ${{ secrets.DOCKER_USER_NAME }}/food_donation_system_frontend:${{ github.sha }}
 
       - name: Push both tags
         run: |
